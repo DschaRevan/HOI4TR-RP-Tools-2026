@@ -1,0 +1,16 @@
+ideas = {
+    country = {
+        PTDM_peacetime_doctrine_studies = {
+            picture = generic_manpower_bonus
+            allowed = { always = no }
+            removal_cost = -1
+            cancel_if_invalid = no
+
+            modifier = {
+                experience_gain_army_factor = 0.15
+                experience_gain_navy_factor = 0.15
+                experience_gain_air_factor = 0.15
+            }
+        }
+    }
+}

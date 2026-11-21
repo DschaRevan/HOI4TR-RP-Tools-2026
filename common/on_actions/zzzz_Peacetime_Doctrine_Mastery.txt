@@ -1,0 +1,54 @@
+
+on_actions = {
+    # New campaign setup. on_startup has no country scope, so iterate countries.
+    on_startup = {
+        effect = {
+            every_country = {
+                limit = { has_war = no }
+                add_ideas = PTDM_peacetime_doctrine_studies
+            }
+        }
+    }
+
+    # Remove the peacetime national spirit as soon as the country enters a war.
+    on_war = {
+        effect = {
+            THIS = {
+                remove_ideas = PTDM_peacetime_doctrine_studies
+            }
+        }
+    }
+
+    # Restore the national spirit when the country is no longer at war.
+    on_peace = {
+        effect = {
+            THIS = {
+                add_ideas = PTDM_peacetime_doctrine_studies
+            }
+        }
+    }
+
+    # Monthly maintenance also handles existing saves / loading the mod mid-campaign.
+    # add_mastery without filters grants the amount to every active doctrine track.
+    on_monthly = {
+        effect = {
+            if = {
+                limit = { has_war = no }
+
+                if = {
+                    limit = {
+                        NOT = { has_idea = PTDM_peacetime_doctrine_studies }
+                    }
+                    add_ideas = PTDM_peacetime_doctrine_studies
+                }
+
+                add_mastery = {
+                    amount = 25
+                }
+            }
+            else = {
+                remove_ideas = PTDM_peacetime_doctrine_studies
+            }
+        }
+    }
+}

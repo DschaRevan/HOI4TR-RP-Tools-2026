@@ -1266,14 +1266,6 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 
 		completion_reward = {
-			random_controlled_state = {
-			add_extra_state_shared_building_slots = 1
-			add_building_construction = {
-				type = industrial_complex
-				level = 1
-				instant_build = yes
-			}
-			}
 			try_build_civ_in_core_otherwise_build_in_controlled = yes
 			custom_effect_tooltip = RAJ_relax_agrarian_society_criteria_tt
 			add_to_variable = { RAJ_agrarian_society_conscription_factor = 0.09 tooltip = conscription_factor_tt }
@@ -1722,7 +1714,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = RAJ_a_peacock_prince
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			base = 1
@@ -2052,6 +2044,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_ANNEXATION}
 
 		completion_reward = {
+		   
 			BRM = {
 				every_core_state = {
 					add_core_of = ROOT
@@ -17990,10 +17983,7 @@ focus = {
 
 	completion_reward = {
 		add_stability = 0.05
-        random_controlled_state = {
-		add_extra_state_shared_building_slots = 2
-		
-		}
+
 		custom_effect_tooltip = generic_skip_one_line_tt
 		custom_effect_tooltip = RAJ_famine_impact_reduction
 		add_to_variable = { RAJ_famine_shield = 8 tooltip = RAJ_famine_shield_tt  }
@@ -21163,7 +21153,7 @@ focus = {
 	}
 
 	available = {
-		has_war_support > 0.5
+		has_war_support > 0.4
 		NOT = { has_idea = capital_investment_model }
 	}
 
@@ -21178,6 +21168,7 @@ focus = {
 	search_filters = {FOCUS_FILTER_INDUSTRY}
 
 	completion_reward = {
+		add_war_support = 0.1
 		if = {
 			limit = {
 				NOT = { has_idea = war_economy }
@@ -22624,7 +22615,7 @@ focus = {
 	y = 1
 	relative_position_id = RAJ_local_recruitment_offices
 	icon = GFX_focus_generic_commonwealth_build_infantry
-	cost = 10
+	cost = 5
 
 	ai_will_do = {
 		base = 1
@@ -23100,7 +23091,7 @@ focus = {
 	}
 
 	available = {
-		has_war_support > 0.4
+		has_war_support > 0.2
 	}
 	bypass = {
 		NOT = { has_dynamic_modifier = { modifier = idea_RAJ_agrarian_society } }
